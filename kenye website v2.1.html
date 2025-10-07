@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KENYE Innovative Solutions - Professional Business Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --navy: #0a1931;
+            --gold: #d4af37;
+            --light-gold: #f4e4a6;
+            --light: #f8f9fa;
+            --dark: #1a1a2e;
+            --gray: #6c757d;
+        }
+
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #fefefe;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--light-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-navy {
+            background: var(--navy);
+            color: white;
+        }
+
+        .btn-navy:hover {
+            background: #152347;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--navy);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .logo i {
+            color: var(--gold);
+            margin-right: 10px;
+            font-size: 2.2rem;
+        }
+
+        .logo span {
+            color: white;
+            font-size: 1.4rem;
+            margin-left: 5px;
+            font-weight: 300;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        nav ul li a.active {
+            color: var(--gold);
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 49, 0.85), rgba(10, 25, 49, 0.9)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #e0e0e0;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(to right, #fefefe, #f8f9fa);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 5px solid var(--gold);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Recruitment Services */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--gold);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+        }
+
+        .benefit-card h3 i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+        }
+
+        /* Digital Marketing */
+        .marketing-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .marketing-text h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .marketing-text p {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .marketing-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 5px solid var(--gold);
+        }
+
+        .marketing-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(to right, #f8f9fa, #fefefe);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            color: #cbd5e0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e0;
+            font-size: 0.9rem;
+        }
+
+        /* Page Navigation */
+        .page {
+            display: none;
+            padding-top: 100px;
+            min-height: calc(100vh - 180px);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Blog Styles */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-post-content {
+            padding: 20px;
+        }
+
+        .blog-post h3 {
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .blog-post .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .marketing-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image,
+            .marketing-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--navy);
+                transition: left 0.3s;
+                z-index: 999;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            nav ul li {
+                margin: 0 0 20px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo" data-page="home">
+                <i class="fas fa-crown"></i> KENYE<span>Innovative Solutions</span>
+            </a>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="recruitment">Recruitment</a></li>
+                    <li><a href="#" class="nav-link" data-page="digital-marketing">Digital Marketing</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                    <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <h1>KENYE Innovative Solutions</h1>
+                <p>Elevating businesses through innovative recruitment strategies and cutting-edge digital marketing solutions. We bridge talent with opportunity and brands with their audiences.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn" data-page="services">Our Services</a>
+                    <a href="tel:0754660230" class="btn btn-navy">Call Us: 075 466 0230</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Solutions</h2>
+                    <p>KENYE offers comprehensive business solutions designed to drive growth and success</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Recruitment Services">
+                        </div>
+                        <div class="service-content">
+                            <h3>Talent Acquisition</h3>
+                            <p>Connecting exceptional talent with forward-thinking companies through our specialized recruitment solutions.</p>
+                            <a href="#" class="btn" data-page="recruitment">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80" alt="Digital Marketing">
+                        </div>
+                        <div class="service-content">
+                            <h3>Digital Transformation</h3>
+                            <p>Driving business growth through innovative digital marketing strategies and online presence optimization.</p>
+                            <a href="#" class="btn" data-page="digital-marketing">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Career Development">
+                        </div>
+                        <div class="service-content">
+                            <h3>Professional Development</h3>
+                            <p>Empowering professionals with the tools and opportunities needed to advance their careers.</p>
+                            <a href="#" class="btn" data-page="recruitment">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- About Us Page -->
+    <section id="about" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>About KENYE</h2>
+                <p>Pioneering business solutions with innovation and excellence</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Redefining Business Solutions</h2>
+                    <p>KENYE Innovative Solutions stands as an independent powerhouse in the business services sector, dedicated to transforming how companies approach talent acquisition and digital presence.</p>
+                    <p>Founded on the principles of innovation and excellence, we've carved our unique identity by delivering results-driven solutions that bridge the gap between potential and performance.</p>
+                    <p>Our distinct approach combines cutting-edge strategies with personalized service, ensuring that each client receives solutions tailored to their specific needs and goals.</p>
+                    <a href="tel:0754660230" class="btn">Call Us: 075 466 0230</a>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="About KENYE">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruitment Services Page -->
+    <section id="recruitment" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Talent Solutions</h2>
+                <p>Strategic recruitment services that connect exceptional talent with visionary companies</p>
+            </div>
+            
+            <div class="section-title">
+                <h3>Empowering New Professionals</h3>
+            </div>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3><i class="fas fa-bridge"></i> Experience Bridge</h3>
+                    <p>We provide practical experience solutions for newly qualified professionals, helping them bridge the gap between academic knowledge and real-world business requirements.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3><i class="fas fa-file-alt"></i> Portfolio Enhancement</h3>
+                    <p>We help students build stronger CV portfolios with the valuable experience gained from short-term projects and assignments.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3><i class="fas fa-network-wired"></i> Employer Networks</h3>
+                    <p>We provide access to our extensive network of potential long-term employers, expanding career opportunities for professionals.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3><i class="fas fa-vial"></i> Career Exploration</h3>
+                    <p>Our services offer career path testing environments, allowing professionals to try different companies, industries, and roles before committing to permanent positions.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3><i class="fas fa-hands-helping"></i> Structured Support</h3>
+                    <p>We provide comprehensive support through coaching, interview tips, CV writing assistance, and workplace etiquette guidance.</p>
+                </div>
+            </div>
+            
+            <div class="section-title" style="margin-top: 80px;">
+                <h3>Strategic Advantages for Businesses</h3>
+            </div>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3><i class="fas fa-user-check"></i> Flexible Talent Solutions</h3>
+                    <p>We provide a pre-vetted pool of qualified, highly motivated professionals for project-based work, seasonal peaks, or special events without long-term commitment.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3><i class="fas fa-search"></i> Try Before You Hire</h3>
+                    <p>Our approach allows businesses to identify and assess future permanent employees through temporary assignments before making hiring decisions.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3><i class="fas fa-lightbulb"></i> Fresh Perspectives</h3>
+                    <p>We help pump new ideas and recent academic knowledge into your teams, bringing innovative perspectives to your business challenges.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3><i class="fas fa-users"></i> Diversity & Inclusion</h3>
+                    <p>We're committed to increasing diversity in business talent pipelines, helping companies build more inclusive and representative teams.</p>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 80px;">
+                <h3>Ready to Transform Your Talent Strategy?</h3>
+                <p>Contact us today to discuss how KENYE can help your business thrive</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="tel:0754660230" class="btn" style="margin-right: 15px;">Call: 075 466 0230</a>
+                <a href="mailto:kenyeinnovativesolutions@gmail.com" class="btn btn-navy">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Marketing Page -->
+    <section id="digital-marketing" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Digital Marketing Solutions</h2>
+                <p>Transforming brands through innovative digital strategies and cutting-edge technology</p>
+            </div>
+            
+            <div class="marketing-content">
+                <div class="marketing-text">
+                    <h2>Digital Innovation for Business Growth</h2>
+                    <p>At KENYE Digital Marketing, we pride ourselves on bringing innovative ideas and solutions to satisfy our clients' needs. Our comprehensive digital marketing services are designed to drive sales growth and enhance brand visibility.</p>
+                    <p>We focus on direct efforts to increase sales through strategic social media engagement and targeted promotion campaigns that deliver measurable results.</p>
+                    <p>Our team of website developers and software experts work closely with clients to create digital experiences that convert visitors into loyal customers.</p>
+                    <a href="tel:0754660230" class="btn">Call: 075 466 0230</a>
+                </div>
+                
+                <div class="marketing-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Digital Marketing">
+                </div>
+            </div>
+            
+            <div class="services-grid" style="margin-top: 80px;">
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3><i class="fas fa-chart-line"></i> Revenue Growth</h3>
+                        <p>Our targeted strategies focus on driving direct sales growth through optimized digital channels and conversion-focused campaigns.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3><i class="fas fa-bullhorn"></i> Brand Elevation</h3>
+                        <p>We help build recognizable and trusted brands online through consistent messaging and strategic visibility across digital platforms.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3><i class="fas fa-shopping-cart"></i> Pipeline Optimization</h3>
+                        <p>We focus on filling your sales pipeline with qualified customers, not just website visitors, through targeted lead generation strategies.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3><i class="fas fa-users"></i> Community Engagement</h3>
+                        <p>We specialize in building loyal communities around brands, fostering engagement and long-term customer relationships.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 80px;">
+                <h3>Let's Elevate Your Digital Presence</h3>
+                <p>Contact KENYE Digital Marketing today for a free consultation</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="tel:0754660230" class="btn" style="margin-right: 15px;">Call: 075 466 0230</a>
+                <a href="https://www.facebook.com/profile.php?id=61550053033394" target="_blank" class="btn btn-navy">Visit Our Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Page -->
+    <section id="services" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Comprehensive Solutions</h2>
+                <p>Explore our full range of professional services designed to meet your business needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2026&q=80" alt="Temporary Staffing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Flexible Staffing</h3>
+                        <p>Adaptive staffing solutions for project-based work, seasonal demands, and special events with qualified professionals.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Permanent Placement">
+                    </div>
+                    <div class="service-content">
+                        <h3>Strategic Placement</h3>
+                        <p>Find the perfect long-term fit for your organization with our comprehensive permanent placement services.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Career Coaching">
+                    </div>
+                    <div class="service-content">
+                        <h3>Professional Development</h3>
+                        <p>Personalized coaching services to help professionals advance their careers and achieve their goals.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80" alt="Social Media Marketing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Social Media Strategy</h3>
+                        <p>Strategic social media campaigns to increase engagement, build brand awareness, and drive conversions.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" alt="Website Development">
+                    </div>
+                    <div class="service-content">
+                        <h3>Digital Platform Development</h3>
+                        <p>Custom website development services to create responsive, user-friendly sites that convert visitors into customers.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Brand Strategy">
+                    </div>
+                    <div class="service-content">
+                        <h3>Brand Strategy & Positioning</h3>
+                        <p>Comprehensive brand development strategies to establish a strong, recognizable identity in your market.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 80px;">
+                <h3>Get Started With KENYE Today</h3>
+                <p>Contact us to discuss which services are right for your business</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="tel:0754660230" class="btn" style="margin-right: 15px;">Call: 075 466 0230</a>
+                <a href="mailto:kenyeinnovativesolutions@gmail.com" class="btn btn-navy">Send Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact KENYE</h2>
+                <p>Get in touch with our team to discuss how we can help your business or career</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Start a Conversation</h3>
+                    <p>Whether you're looking for talent, marketing solutions, or career opportunities, we're here to help. Reach out to us using the form or contact details below.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:0754660230" style="color: var(--navy);">075 466 0230</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:kenyeinnovativesolutions@gmail.com" style="color: var(--navy);">kenyeinnovativesolutions@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fab fa-facebook"></i>
+                            <div>
+                                <h4>Facebook</h4>
+                                <p><a href="https://www.facebook.com/profile.php?id=61550053033394" target="_blank" style="color: var(--navy);">Kenye Innovative Solutions</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61550053033394" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:kenyeinnovativesolutions@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:0754660230"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Page -->
+    <section id="blog" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>KENYE Insights</h2>
+                <p>Stay updated with the latest trends in recruitment, digital marketing, and business innovation</p>
+            </div>
+            
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Blog Post 1">
+                    <div class="blog-post-content">
+                        <h3>The Future of Hybrid Recruitment</h3>
+                        <div class="date">October 1, 2023</div>
+                        <p>Explore how hybrid work models are transforming recruitment strategies and what it means for businesses and job seekers.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Blog Post 2">
+                    <div class="blog-post-content">
+                        <h3>Digital Marketing Trends for 2024</h3>
+                        <div class="date">October 15, 2023</div>
+                        <p>Discover the key digital marketing trends that will dominate 2024 and how to leverage them for business growth.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2026&q=80" alt="Blog Post 3">
+                    <div class="blog-post-content">
+                        <h3>Building a Future-Ready Workforce</h3>
+                        <div class="date">October 20, 2023</div>
+                        <p>Learn strategies for creating inclusive hiring practices that lead to more diverse and innovative teams.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 80px;">
+                <h3>Stay Connected With KENYE</h3>
+                <p>Follow us on social media for the latest updates and insights</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://www.facebook.com/profile.php?id=61550053033394" target="_blank" class="btn" style="margin-right: 15px;">Follow on Facebook</a>
+                <a href="mailto:kenyeinnovativesolutions@gmail.com" class="btn btn-navy">Subscribe to Newsletter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>KENYE Innovative Solutions</h3>
+                    <p>Transforming businesses through innovative recruitment strategies and cutting-edge digital marketing solutions.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61550053033394" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:kenyeinnovativesolutions@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:0754660230"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="recruitment">Recruitment Services</a></li>
+                        <li><a href="#" data-page="digital-marketing">Digital Marketing</a></li>
+                        <li><a href="#" data-page="contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="recruitment">Talent Acquisition</a></li>
+                        <li><a href="#" data-page="digital-marketing">Digital Transformation</a></li>
+                        <li><a href="#" data-page="recruitment">Professional Development</a></li>
+                        <li><a href="#" data-page="services">Business Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> <a href="tel:0754660230">075 466 0230</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:kenyeinnovativesolutions@gmail.com">kenyeinnovativesolutions@gmail.com</a></li>
+                        <li><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/profile.php?id=61550053033394" target="_blank">Kenye Innovative Solutions</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 KENYE Innovative Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Page navigation
+        document.querySelectorAll('.nav-link, .logo, .btn').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.hasAttribute('data-page')) {
+                    e.preventDefault();
+                    
+                    // Get the target page
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Hide all pages
+                    document.querySelectorAll('.page').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // Show target page
+                    document.getElementById(targetPage).classList.add('active');
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    
+                    // If it's a nav link, set it as active
+                    if (this.classList.contains('nav-link')) {
+                        this.classList.add('active');
+                    } else {
+                        // Find the corresponding nav link and set it as active
+                        const correspondingNavLink = document.querySelector(`.nav-link[data-page="${targetPage}"]`);
+                        if (correspondingNavLink) {
+                            correspondingNavLink.classList.add('active');
+                        }
+                    }
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav').classList.remove('active');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
